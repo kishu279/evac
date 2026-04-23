@@ -1,17 +1,28 @@
 import { NextResponse } from 'next/server';
-import { getGeminiModel } from '@/lib/gemini';
+import { askGemini } from '@/lib/gemini';
 
 export async function POST(request: Request) {
   try {
-    const { incidentDetails } = await request.json();
-    const model = getGeminiModel();
+    const { userInput, userRole } = await request.json();
     
-    // Stub: generate triage analysis
-    const prompt = `Analyze this incident: ${incidentDetails}. Suggest severity and immediate actions.`;
-    const result = await model.generateContent(prompt);
+    const prompt = `Emergency triage AI. Staff reported: '${userInput}'. Staff role: ${userRole}.
+Respond with ONLY a raw JSON object (no markdown, no backticks):
+{ "severity": "low"|"medium"|"high"|"critical", "classification": "string", "immediateActions": ["string", "string"], "escalateToRoles": ["string"], "summary": "string" }`;
+
+    const responseText = await askGemini(prompt);
     
-    return NextResponse.json({ triage: result.response.text() });
+    let triageResult;
+    try {
+      const cleanedJson = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+      triageResult = JSON.parse(cleanedJson);
+    } catch (parseError) {
+      console.error("Failed to parse Triage response", parseError);
+      throw new Error("Failed to parse triage response");
+    }
+
+    return NextResponse.json({ triage: triageResult });
   } catch (error: any) {
+    console.error("Triage API Error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
