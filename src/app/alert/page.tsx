@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { useAuth } from "@/components/AuthProvider";
 import { Flame, Cross, AlertTriangle, ShieldAlert, X } from "lucide-react";
-import { collection, addDoc, doc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 import { ref, set } from "firebase/database";
 import { db, rtdb } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
@@ -52,7 +52,7 @@ export default function AlertPage() {
       };
 
       // 1. Write to Firestore
-      await set(doc(db, 'incidents', newIncidentId), incidentData);
+      await setDoc(doc(db, 'incidents', newIncidentId), incidentData);
 
       // 2. Write to Realtime DB
       await set(ref(rtdb, 'activeIncident'), incidentData);
