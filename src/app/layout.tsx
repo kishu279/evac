@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/AuthProvider";
 import { Navbar } from "@/components/Navbar";
+import { EmergencyBanner } from "@/components/EmergencyBanner";
 import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-zinc-950 text-zinc-50 min-h-screen flex flex-col`}>
         <AuthProvider>
           <Navbar />
+          <EmergencyBanner />
           <main className="flex-1 flex flex-col">
             {children}
           </main>
