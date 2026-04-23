@@ -1,0 +1,31 @@
+importScripts('https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/10.0.0/firebase-messaging-compat.js');
+
+const firebaseConfig = {
+  // These will be overridden by the client URL parameters if we pass them, 
+  // but it's often necessary to hardcode them or generate this file dynamically.
+  // For standard V9+ compat, you need to provide your config here.
+  // We'll instruct the user to replace these or they will fail. 
+  // For hackathon purposes, standard is pasting the config here.
+  // We will leave placeholders and note it in the file.
+  apiKey: "REPLACE_WITH_YOUR_API_KEY",
+  authDomain: "REPLACE_WITH_YOUR_AUTH_DOMAIN",
+  projectId: "REPLACE_WITH_YOUR_PROJECT_ID",
+  messagingSenderId: "REPLACE_WITH_YOUR_MESSAGING_SENDER_ID",
+  appId: "REPLACE_WITH_YOUR_APP_ID"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const messaging = firebase.messaging();
+
+messaging.onBackgroundMessage((payload) => {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  const notificationTitle = payload.notification?.title || 'Emergency Alert';
+  const notificationOptions = {
+    body: payload.notification?.body,
+    icon: '/icon-192.png' // We can just use a placeholder icon path
+  };
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});

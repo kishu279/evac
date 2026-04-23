@@ -1,18 +1,18 @@
 "use client";
 
 import { ProtectedRoute } from "@/components/ProtectedRoute";
-import { EmergencyBanner } from "@/components/EmergencyBanner";
 import { TaskCard } from "@/components/TaskCard";
 import { StaffPanel } from "@/components/StaffPanel";
 import { EventLog } from "@/components/EventLog";
+import { useFCMToken } from "@/lib/hooks/useFCMToken";
 
 export default function DashboardPage() {
+  useFCMToken(); // Register for push notifications
+
   return (
     <ProtectedRoute>
       <div className="p-6 max-w-7xl mx-auto w-full">
         <h1 className="text-2xl font-bold mb-6">Command Center</h1>
-        
-        <EmergencyBanner />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
