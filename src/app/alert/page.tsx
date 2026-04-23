@@ -73,6 +73,13 @@ export default function AlertPage() {
         timestamp: Date.now()
       });
 
+      // Background task generation (fire and forget)
+      fetch('/api/gemini/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ incidentType: type, location, severity, incidentId: newIncidentId })
+      }).catch(err => console.error("Auto task generation failed", err));
+
       setShowModal(false);
       setShowFlash(true);
 
