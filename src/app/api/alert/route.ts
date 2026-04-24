@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     };
 
     const messaging = admin.messaging();
-    const response = await messaging.sendEachForMulticast({
+    const response = await messaging.sendMulticast({
       tokens,
       ...payload
     });
