@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const incidentData = await request.json();
     
     // Fetch all staff to get FCM tokens
-    const staffSnapshot = await adminDb.collection('staff').get();
+    const staffSnapshot = await adminDb().collection('staff').get();
     const tokens: string[] = [];
     
     staffSnapshot.forEach(doc => {
