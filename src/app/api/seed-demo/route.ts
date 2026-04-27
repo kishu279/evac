@@ -12,7 +12,7 @@ export async function POST() {
       type: 'FIRE',
       severity: 'HIGH',
       status: 'active',
-      location: 'Floor 2, Conference Hall',
+      location: 'Your Building Name, Floor X, Room XXX',  // ← CHANGE THIS TO YOUR ACTUAL LOCATION
       createdAt: now - (45 * 60000), // 45 mins ago
       createdBy: 'admin@hotel.com',
     };

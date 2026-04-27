@@ -23,6 +23,9 @@ Respond with ONLY a raw JSON object (no markdown, no backticks):
     return NextResponse.json({ triage: triageResult });
   } catch (error: any) {
     console.error("Triage API Error:", error);
+    if (error.message === 'AI_QUOTA_EXCEEDED') {
+      return NextResponse.json({ error: 'AI quota exceeded. Please try again later or contact admin.' }, { status: 429 });
+    }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

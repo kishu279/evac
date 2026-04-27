@@ -1,6 +1,12 @@
 {
   "name": "evac",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Real-time crisis response platform powered by Google Gemini AI",
+  "author": "Team Voxforge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/evac.git"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",

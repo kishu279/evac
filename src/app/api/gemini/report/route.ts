@@ -25,6 +25,9 @@ Data: Incident=${JSON.stringify(incidentData)}, Tasks=${JSON.stringify(tasksData
     return NextResponse.json({ report: reportText });
   } catch (error: any) {
     console.error("Report API Error:", error);
+    if (error.message === 'AI_QUOTA_EXCEEDED') {
+      return NextResponse.json({ error: 'AI quota exceeded. Please try again later.' }, { status: 429 });
+    }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

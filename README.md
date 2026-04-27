@@ -1,4 +1,11 @@
 # Evac — Rapid Crisis Response Platform
+
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://evac-eta.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=next.js)](https://nextjs.org)
+[![Firebase](https://img.shields.io/badge/Firebase-Free%20Tier-orange?logo=firebase)](https://firebase.google.com)
+[![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-blue?logo=google)](https://ai.google.dev)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 > **Google Solution Challenge 2026 | Team Voxforge**  
 > Real-time emergency coordination system powered by Google Gemini AI
 
@@ -29,7 +36,7 @@ Hotels, hospitals, and large facilities face critical coordination failures duri
 
 ## 🚀 Live Demo
 
-**Deployed URL:** `https://your-app.vercel.app` *(replace with actual Vercel URL)*
+**Deployed URL:** [https://evac-eta.vercel.app](https://evac-eta.vercel.app)
 
 ### Demo Accounts
 | Role | Email | Password | Access Level |
@@ -59,7 +66,7 @@ Hotels, hospitals, and large facilities face critical coordination failures duri
 ---
 
 ### 2. **AI-Powered Task Generation** 🤖
-- **Gemini 2.0 Flash** analyzes incident type, location, and severity
+- **Gemini 2.5 Flash** analyzes incident type, location, and severity
 - **Auto-generates 10 role-specific tasks** within seconds of emergency declaration
 - Tasks include: priority level (critical/high/medium), estimated time, assigned role
 - **Fallback logic** if AI fails — ensures system never breaks
@@ -199,7 +206,7 @@ Hotels, hospitals, and large facilities face critical coordination failures duri
                 ▼                         ▼
 ┌──────────────────────────┐  ┌──────────────────────────┐
 │   Firebase Admin SDK     │  │   Google Gemini API      │
-│   (server-side)          │  │   (gemini-2.0-flash)     │
+│   (server-side)          │  │   (gemini-2.5-flash)     │
 │   - Auth user creation   │  │   - Task generation      │
 │   - Firestore writes     │  │   - Triage analysis      │
 │   - FCM multicast        │  │   - Report writing       │
@@ -219,7 +226,7 @@ Hotels, hospitals, and large facilities face critical coordination failures duri
 | **Real-time** | Firebase Realtime Database | Active incident state sync |
 | **Auth** | Firebase Authentication | Email/password login, session management |
 | **Push Notifications** | Firebase Cloud Messaging (FCM) | Browser push alerts |
-| **AI** | Google Gemini 2.0 Flash | Task gen, triage, report writing |
+| **AI** | Google Gemini 2.5 Flash | Task gen, triage, report writing |
 | **Maps** | Google Maps JavaScript API | Crisis location visualization |
 | **Deployment** | Vercel (free hobby plan) | Serverless hosting, auto-deploy |
 
@@ -239,7 +246,7 @@ Hotels, hospitals, and large facilities face critical coordination failures duri
 
 1. **Clone repository**
    ```bash
-   git clone https://github.com/your-username/evac.git
+   git clone https://github.com/kmr-ankitt/evac.git
    cd evac
    ```
 
@@ -351,7 +358,7 @@ Hotels, hospitals, and large facilities face critical coordination failures duri
    - Click Deploy
 
 3. **Seed production database**
-   - Visit `https://your-app.vercel.app/api/seed`
+   - Visit `https://evac-eta.vercel.app/api/seed`
    - Login as admin → click "Seed Demo"
 
 4. **Auto-redeploy**
@@ -442,7 +449,7 @@ Hotels, hospitals, and large facilities face critical coordination failures duri
 - **SDG 9:** Industry, Innovation, and Infrastructure — AI-powered crisis management
 
 ### Google Technologies Used
-1. **Google Gemini 2.0 Flash** — AI task generation, triage analysis, report writing
+1. **Google Gemini 2.5 Flash** — AI task generation, triage analysis, report writing
 2. **Google Cloud (Firebase)** — Firestore, Realtime DB, Auth, FCM, Hosting
 3. **Google Maps JavaScript API** — Crisis location visualization
 
@@ -471,9 +478,10 @@ Hotels, hospitals, and large facilities face critical coordination failures duri
 
 ## 👥 Team Voxforge
 
-- **Developer:** [Your Name]
+- **Team Leader:** Ankit Kumar Sahu
 - **Project:** Google Solution Challenge 2026
-- **Contact:** [your-email@example.com]
+- **Contact:** sahuankit.murhu@gmail.com
+- **GitHub:** https://github.com/kmr-ankitt/evac
 
 ---
 
